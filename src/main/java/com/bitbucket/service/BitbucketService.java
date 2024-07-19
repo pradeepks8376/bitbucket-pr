@@ -34,14 +34,6 @@ public class BitbucketService {
         this.restTemplate = restTemplate;
     }
 
-  /*  public BitbucketService(RestTemplate restTemplate,
-                            @Value("${bitbucket.api.url}") String bitbucketApiUrl,
-                            @Value("${bitbucket.repo.slug}") String repoSlug) {
-        this.restTemplate = restTemplate;
-        this.bitbucketApiUrl = bitbucketApiUrl;
-        this.repoSlug = repoSlug;
-    }*/
-
     private HttpHeaders createHeaders() {
         HttpHeaders headers = new HttpHeaders();
         String auth = username + ":" + password;
@@ -54,10 +46,6 @@ public class BitbucketService {
 
     private HttpHeaders createHeaders1() {
         HttpHeaders headers = new HttpHeaders();
-//        String auth = username + ":" + password;
-//        byte[] encodedAuth = Base64.getEncoder().encode(auth.getBytes(StandardCharsets.US_ASCII));
-//        String authHeader = "Basic " + new String(encodedAuth);
-//        headers.set("Authorization", authHeader);
         headers.setContentType(MediaType.APPLICATION_JSON);
         return headers;
     }
