@@ -1,6 +1,7 @@
 package com.bitbucket.controller;
 
 import com.bitbucket.service.BitbucketService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -8,11 +9,8 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/bitbucket")
 public class BitbucketController {
 
-    private final BitbucketService bitbucketService;
-
-    public BitbucketController(BitbucketService bitbucketService) {
-        this.bitbucketService = bitbucketService;
-    }
+    @Autowired
+    private BitbucketService bitbucketService;
 
     @GetMapping("/pullrequests")
     public ResponseEntity<String> listPullRequests(@RequestParam String repo, @RequestParam String state) {
